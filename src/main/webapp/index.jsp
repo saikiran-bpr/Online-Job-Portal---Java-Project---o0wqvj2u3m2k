@@ -38,7 +38,8 @@
 	                <option value="all">All Jobs</option>
 	                <option value="technical">Technical Jobs</option>
 	                <option value="management">Management Jobs</option>
-	                <option value="operations">Operational Jobs</option>
+	                <option value="operational">Operational Jobs</option>
+	                <option value="general">General Jobs</option>
 	            </select>
 	            <button type="submit">Search</button>
             </form>
@@ -55,8 +56,8 @@
             if (jobs != null) {
                 for (Job job : jobs) {
         %>
-            <div>
-                <h3><%= job.getTitle() %></h3>
+            <div class="jobs">
+                <h3><strong>Role:   </strong><%= job.getTitle() %></h3>
                 <p><strong>Company:</strong> <%= job.getCompany() %></p>
                 <p><strong>Location:</strong> <%= job.getLocation() %></p>
                 <p><strong>Description:</strong> <%= job.getDescription() %></p>
