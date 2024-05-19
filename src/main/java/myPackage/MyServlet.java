@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 
-
+//import myPackage.JobService;
 
 import com.google.gson.Gson;
 
@@ -44,17 +44,17 @@ public class MyServlet extends HttpServlet {
 //	    System.out.println(jobCategory);
 //	    
 //	    
-////        JobsContainer jobsContainer = gson.fromJson(new FileReader("jobs.json"), JobsContainer.class);
-//
+//       JobsContainer jobsContainer = gson.fromJson(new FileReader("/jobs.json"), JobsContainer.class);
+
 //	    InputStream is = getServletContext().getResourceAsStream("/jobs.json");
 //        if (is == null) {
 //            throw new FileNotFoundException("Cannot find 'jobs.json'");
 //        }
 //
-//        // Read the file from the InputStream
+////        // Read the file from the InputStream
 //        JobsContainer jobsContainer = gson.fromJson(new InputStreamReader(is), JobsContainer.class);
-//
-//        // Close the InputStream
+
+//         Close the InputStream
 //        is.close();
 //        // Filter the jobs based on typeOfJob, if parameter is provided
 //        List<Job> filteredJobs = jobsContainer.getJobs();
@@ -62,19 +62,22 @@ public class MyServlet extends HttpServlet {
 //            filteredJobs = filteredJobs.stream()
 //                                       .filter(job -> typeOfJob.equalsIgnoreCase(job.getTypeOfJob()))
 //                                       .collect(Collectors.toList());
-//        	
-//        	
+////        	
+////        	
 //        }
-		
+		Gson gson = new Gson();
+//		
 		JobService jobService = new JobService(getServletContext());
+	
         List<Job> filteredJobs = jobService.getFilteredJobs(jobCategory);
+        System.out.println(filteredJobs);
 
-      Gson gson = new Gson();
+      
       String jsonJobs = gson.toJson(filteredJobs);
 
      // Set the JSON string as a request attribute
      request.setAttribute("jobsData", jsonJobs);
-     System.out.println(jsonJobs);
+//     System.out.println(jsonJobs);
      // Forward the request to index.jsp
      RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
      dispatcher.forward(request, response);

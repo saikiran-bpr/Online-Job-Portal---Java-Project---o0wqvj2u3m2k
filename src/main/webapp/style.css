@@ -41,7 +41,8 @@ section {
 
 .search-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    margin-left: 50px;
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -58,6 +59,8 @@ section {
 }
 
 button {
+	border: none;
+	border-radius: 10px;
     padding: 10px;
     background-color: #555;
     color: white;
@@ -67,6 +70,7 @@ button {
 }
 
 button:hover {
+	
     background-color: #333;
 }
 
@@ -95,4 +99,11 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+.jobs{
+	padding : 15px;
+	margin: 5px;
+	border-radius: 20px;
+	background-color: rgb(237, 255, 164);
+	
 }
